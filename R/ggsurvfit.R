@@ -90,7 +90,7 @@ ggsurvfit <- function(x, type = "survival",
 .construct_ggplot <- function(x, df, aes_args, theme, ...) {
   ggplot2::ggplot(data = df, ggplot2::aes(is_ggsurvfit = TRUE)) +
     list(
-      rlang::inject(ggplot2::geom_step(ggplot2::aes(!!!aes_args), !!!rlang::dots_list(...))),
+      rlang::inject(ggplot2::geom_smooth(ggplot2::aes(!!!aes_args), se = F, !!!rlang::dots_list(...))),
       ggplot2::labs(
         y = .default_y_axis_label(df),
         x = .default_x_axis_label(x),
